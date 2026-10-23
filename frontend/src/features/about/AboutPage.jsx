@@ -1,6 +1,6 @@
 import { Database, KeyRound, UserRound } from 'lucide-react'
-import mldImg from '../../assets/MLD_gestion_absences.png'
-import mpdImg from '../../assets/MPD_gestion_absences.png'
+import mldImg from '../../assets/mld.png'
+import mpdImg from '../../assets/mpd.png'
 
 const TABLES = [
   {
