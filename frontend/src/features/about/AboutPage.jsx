@@ -1,4 +1,6 @@
 import { Database, KeyRound, UserRound } from 'lucide-react'
+import mldImg from '../../assets/MLD_gestion_absences.png'
+import mpdImg from '../../assets/MPD_gestion_absences.png'
 
 const TABLES = [
   {
@@ -79,7 +81,9 @@ export default function AboutPage() {
       <header>
         <p className="text-sm font-medium text-indigo-700">Gestion des absences</p>
         <h1 className="mt-1 text-xl font-semibold text-slate-900">À propos</h1>
-        <p className="mt-1 text-sm text-slate-500">Présentation du projet et étude du schéma de base de données relationnelle (SBDR).</p>
+        <p className="mt-1 text-sm text-slate-500">
+          Présentation du projet et étude du schéma de base de données relationnelle (SBDR).
+        </p>
       </header>
 
       <section className="rounded-lg border border-slate-200 bg-white p-5">
@@ -147,9 +151,14 @@ export default function AboutPage() {
         </div>
         <div className="divide-y divide-slate-100">
           {RELATIONS.map((relation) => (
-            <div key={`${relation.from}-${relation.to}`} className="grid gap-1 py-3 first:pt-0 last:pb-0 sm:grid-cols-[minmax(0,1fr)_5rem_2fr] sm:items-center sm:gap-4">
-              <p className="font-mono text-sm text-slate-800">{relation.from} <span className="text-slate-400">→</span> {relation.to}</p>
-              <p className="text-xs font-medium text-indigo-700">1 à N</p>
+            <div
+              key={`${relation.from}-${relation.to}`}
+              className="grid gap-1 py-3 first:pt-0 last:pb-0 sm:grid-cols-[minmax(0,1fr)_5rem_2fr] sm:items-center sm:gap-4"
+            >
+              <p className="font-mono text-sm text-slate-800">
+                {relation.from} <span className="text-slate-400">→</span> {relation.to}
+              </p>
+              <p className="text-xs font-medium text-indigo-700">{relation.cardinality}</p>
               <p className="text-xs leading-5 text-slate-600">{relation.rule}</p>
             </div>
           ))}
@@ -157,6 +166,34 @@ export default function AboutPage() {
         <p className="mt-4 border-t border-slate-100 pt-3 text-xs text-slate-500">
           Les clés étrangères assurent l’intégrité référentielle. Aucune relation directe n’est définie entre les tables classe et matiere.
         </p>
+      </section>
+
+      <section className="space-y-4">
+        <div className="flex items-center gap-2">
+          <Database size={18} className="text-indigo-700" />
+          <h2 className="text-sm font-semibold text-slate-900">Modèle Logique de Données (MLD)</h2>
+        </div>
+        <div className="rounded-lg border border-slate-200 bg-white p-4">
+          <img
+            src={mldImg}
+            alt="Modèle Logique de Données"
+            className="w-full rounded-md"
+          />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="flex items-center gap-2">
+          <Database size={18} className="text-indigo-700" />
+          <h2 className="text-sm font-semibold text-slate-900">Modèle Physique de Données (MPD)</h2>
+        </div>
+        <div className="rounded-lg border border-slate-200 bg-white p-4">
+          <img
+            src={mpdImg}
+            alt="Modèle Physique de Données"
+            className="w-full rounded-md"
+          />
+        </div>
       </section>
     </div>
   )
